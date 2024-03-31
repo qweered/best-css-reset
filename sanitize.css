@@ -1,0 +1,66 @@
+body {
+    min-height: 100dvb; /* https://ardislu.dev/min-height-100dvh */
+    text-rendering: optimizeSpeed;
+}
+
+/* Opt-in to the new CSS color scheme feature, light is default */
+:root {
+    color-scheme: light dark;
+}
+
+/* Small margin above the target of an in-page link */
+:target {
+    scroll-margin-block: 1rem;
+}
+
+/* Fill currentColor on SVG elements that don't have a fill attribute */
+:where(svg:not([fill])) {
+    fill: currentColor;
+}
+
+/* ARIA styles */
+:where([aria-busy="true"]) {
+    cursor: progress;
+}
+
+:where([aria-controls]) {
+    cursor: pointer;
+}
+
+:where([aria-disabled="true"], [disabled]) {
+    cursor: not-allowed;
+}
+
+:where([aria-hidden="false"][hidden]) {
+    display: revert;
+}
+
+:where([aria-hidden="false"][hidden]:not(:focus)) {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}

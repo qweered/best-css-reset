@@ -1,0 +1,5 @@
+{
+  "name": "best-css-reset",
+  "module": "reset.css",
+  "type": "module"
+}
